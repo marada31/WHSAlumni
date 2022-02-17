@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace MvcMovie.Models
 {
-    public class MovieGenreViewModel
+    public class AttendedClassResultsViewModel
     {
-        public List<Movie>? Movies { get; set; }
-        public SelectList? Genres { get; set; }
-        public string? MovieGenre { get; set; }
+        public List<Movie>? PassedAlumni { get; set; }
+        public SelectList? AttendedClass { get; set; }
+        public string? AttendedClassResults { get; set; }
         public string? SearchString { get; set; }
     }
 }

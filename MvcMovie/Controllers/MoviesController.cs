@@ -11,62 +11,62 @@ using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
 {
-    public class MoviesController : Controller
+    public class PassedAlumniController : Controller
     {
         private readonly MvcMovieContext _context;
 
-        public MoviesController(MvcMovieContext context)
+        public PassedAlumniController(MvcMovieContext context)
         {
             _context = context;
         }
 
-        // GET: Movies
+        // GET: PassedAlumni
         //public async Task<IActionResult> Index(string searchString)
         //{
-          //  var movies = from m in _context.Movie
+          //  var deceased = from m in _context.Movie
            //              select m;
 
           //  if (!String.IsNullOrEmpty(searchString))
           //  {
-           //     movies = movies.Where(s => s.Title!.Contains(searchString));
+           //     deceased = deceased.Where(s => s.FirstName!.Contains(searchString));
           //  }
 
-        //    return View(await movies.ToListAsync());
+        //    return View(await deceased.ToListAsync());
         //}
 
 
-        public async Task<IActionResult> Index(string movieGenre, string searchString)
+        public async Task<IActionResult> Index(string AttendedClassResults, string searchString)
         {
             // Use LINQ to get list of genres.
             IQueryable<string> genreQuery = from m in _context.Movie
-                                            orderby m.Genre
-                                            select m.Genre;
-            var movies = from m in _context.Movie
+                                            orderby m.TheClassAttended
+                                            select m.TheClassAttended;
+            var deceased = from m in _context.Movie
                          select m;
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                movies = movies.Where(s => s.Title!.Contains(searchString));
+                deceased = deceased.Where(s => s.FirstName!.Contains(searchString));
             }
 
-            if (!string.IsNullOrEmpty(movieGenre))
+            if (!string.IsNullOrEmpty(AttendedClassResults))
             {
-                movies = movies.Where(x => x.Genre == movieGenre);
+                deceased = deceased.Where(x => x.TheClassAttended == AttendedClassResults);
             }
 
-            var movieGenreVM = new MovieGenreViewModel
+            var AttendedClassResultsVM = new AttendedClassResultsViewModel
             {
-                Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
-                Movies = await movies.ToListAsync()
+                AttendedClass = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                PassedAlumni = await deceased.ToListAsync()
             };
 
-            return View(movieGenreVM);
+            return View(AttendedClassResultsVM);
         }
 
 
 
 
-        // GET: Movies/Details/5
+        // GET: PassedAlumni/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -84,18 +84,18 @@ namespace MvcMovie.Controllers
             return View(movie);
         }
 
-        // GET: Movies/Create
+        // GET: PassedAlumni/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Movies/Create
+        // POST: PassedAlumni/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,PassingDate,TheClassAttended,Price,LastName")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace MvcMovie.Controllers
             return View(movie);
         }
 
-        // GET: Movies/Edit/5
+        // GET: PassedAlumni/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -122,12 +122,12 @@ namespace MvcMovie.Controllers
             return View(movie);
         }
 
-        // POST: Movies/Edit/5
+        // POST: PassedAlumni/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,PassingDate,TheClassAttended,Price,LastName")] Movie movie)
         {
             if (id != movie.Id)
             {
@@ -157,7 +157,7 @@ namespace MvcMovie.Controllers
             return View(movie);
         }
 
-        // GET: Movies/Delete/5
+        // GET: PassedAlumni/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -175,7 +175,7 @@ namespace MvcMovie.Controllers
             return View(movie);
         }
 
-        // POST: Movies/Delete/5
+        // POST: PassedAlumni/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

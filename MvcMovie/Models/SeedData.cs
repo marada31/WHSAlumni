@@ -14,7 +14,7 @@ namespace MvcMovie.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<MvcMovieContext>>()))
             {
-                // Look for any movies.
+                // Look for any deceased.
                 if (context.Movie.Any())
                 {
                     return;   // DB has been seeded
@@ -23,37 +23,37 @@ namespace MvcMovie.Models
                 context.Movie.AddRange(
                     new Movie
                     {
-                        Title = "When Harry Met Sally",
-                        ReleaseDate = DateTime.Parse("1989-2-12"),
-                        Genre = "Romantic Comedy",
-                        Rating = "R",
+                        FirstName = "When Harry Met Sally",
+                        PassingDate = DateTime.Parse("1989-2-12"),
+                        TheClassAttended = "Romantic Comedy",
+                        LastName = "R",
                         Price = 7.99M
                     },
 
                     new Movie
                     {
-                        Title = "Ghostbusters ",
-                        ReleaseDate = DateTime.Parse("1984-3-13"),
-                        Genre = "Comedy",
-                        Rating = "M17",
+                        FirstName = "Ghostbusters ",
+                        PassingDate = DateTime.Parse("1984-3-13"),
+                        TheClassAttended = "Comedy",
+                        LastName = "M17",
                         Price = 8.99M
                     },
 
                     new Movie
                     {
-                        Title = "Ghostbusters 2",
-                        ReleaseDate = DateTime.Parse("1986-2-23"),
-                        Genre = "Comedy",
-                        Rating = "PG13",
+                        FirstName = "Ghostbusters 2",
+                        PassingDate = DateTime.Parse("1986-2-23"),
+                        TheClassAttended = "Comedy",
+                        LastName = "PG13",
                         Price = 9.99M
                     },
 
                     new Movie
                     {
-                        Title = "Rio Bravo",
-                        ReleaseDate = DateTime.Parse("1959-4-15"),
-                        Genre = "Western",
-                        Rating = "MC17",
+                        FirstName = "Rio Bravo",
+                        PassingDate = DateTime.Parse("1959-4-15"),
+                        TheClassAttended = "Western",
+                        LastName = "MC17",
                         Price = 3.99M
                     }
                 );

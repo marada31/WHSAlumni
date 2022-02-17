@@ -4,12 +4,12 @@
 
 namespace MvcMovie.Migrations
 {
-    public partial class Rating : Migration
+    public partial class LastName : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Rating",
+                name: "LastName",
                 table: "Movie",
                 type: "nvarchar(max)",
                 nullable: true);
@@ -18,7 +18,7 @@ namespace MvcMovie.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Rating",
+                name: "LastName",
                 table: "Movie");
         }
     }
