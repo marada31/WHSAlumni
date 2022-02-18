@@ -20,17 +20,18 @@ namespace MvcMovie.Controllers
             _context = context;
         }
 
-
-
-
         public async Task<IActionResult> Index(string AttendedClassResults, string searchString)
         {
-            // Use LINQ to get list of genres.
+            // LINQ to get list of classes by year.
             IQueryable<string> genreQuery = from m in _context.Movie
                                             orderby m.TheClassAttended
                                             select m.TheClassAttended;
+
+
             var deceased = from m in _context.Movie
+                           
                            select m;
+                           
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -55,32 +56,25 @@ namespace MvcMovie.Controllers
 
 
         // GET: PassedAlumni/Details/5
-        // public async Task<IActionResult> Details(int? id)
-        public async Task<IActionResult> Details(string LastName)
+         public async Task<IActionResult> Details(int? id)
+     
         {
-            if (LastName == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
             var movie = await _context.Movie
 
-
-
-
-              // .OrderBy(m => m.LastName == LastName);
-              //.OrderBy(m => m.LastName);
-              .FirstOrDefaultAsync(m => m.LastName == LastName);
-             // .FirstOrDefaultAsync(m => m.Id == id);
-
+            .FirstOrDefaultAsync(m => m.Id == id);
 
             if (movie == null)
             {
                 return NotFound();
             }
 
-             return View(movie);
-           // return View(await _context.Movie.OrderBy(m => m.LastName).ToListAsync());
+            return View(movie);
+
 
         }
 
