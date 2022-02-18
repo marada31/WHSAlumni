@@ -1,7 +1,7 @@
 ﻿@model MvcMovie.Models.AttendedClassResultsViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Listing";
 }
 
 <h1>Index</h1>
@@ -28,6 +28,9 @@
                 @Html.DisplayNameFor(model => model.PassedAlumni[0].FirstName)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.PassedAlumni[0].MaidenName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.PassedAlumni[0].LastName)
             </th>
             <th>
@@ -35,9 +38,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PassedAlumni[0].TheClassAttended)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PassedAlumni[0].Price)
             </th>
 
             <th></th>
@@ -51,6 +51,9 @@
                     @Html.DisplayFor(modelItem => item.FirstName)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.MaidenName)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.LastName)
                 </td>
                 <td>
@@ -58,9 +61,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TheClassAttended)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
                 </td>
 
                 <td>

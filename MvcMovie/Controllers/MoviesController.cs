@@ -20,19 +20,7 @@ namespace MvcMovie.Controllers
             _context = context;
         }
 
-        // GET: PassedAlumni
-        //public async Task<IActionResult> Index(string searchString)
-        //{
-          //  var deceased = from m in _context.Movie
-           //              select m;
 
-          //  if (!String.IsNullOrEmpty(searchString))
-          //  {
-           //     deceased = deceased.Where(s => s.FirstName!.Contains(searchString));
-          //  }
-
-        //    return View(await deceased.ToListAsync());
-        //}
 
 
         public async Task<IActionResult> Index(string AttendedClassResults, string searchString)
@@ -42,7 +30,7 @@ namespace MvcMovie.Controllers
                                             orderby m.TheClassAttended
                                             select m.TheClassAttended;
             var deceased = from m in _context.Movie
-                         select m;
+                           select m;
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -67,21 +55,33 @@ namespace MvcMovie.Controllers
 
 
         // GET: PassedAlumni/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string LastName)
         {
-            if (id == null)
+            if (LastName == null)
             {
                 return NotFound();
             }
 
             var movie = await _context.Movie
-                .FirstOrDefaultAsync(m => m.Id == id);
+
+
+
+
+              // .OrderBy(m => m.LastName == LastName);
+              //.OrderBy(m => m.LastName);
+              .FirstOrDefaultAsync(m => m.LastName == LastName);
+             // .FirstOrDefaultAsync(m => m.Id == id);
+
+
             if (movie == null)
             {
                 return NotFound();
             }
 
-            return View(movie);
+             return View(movie);
+           // return View(await _context.Movie.OrderBy(m => m.LastName).ToListAsync());
+
         }
 
         // GET: PassedAlumni/Create
@@ -95,7 +95,7 @@ namespace MvcMovie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,PassingDate,TheClassAttended,Price,LastName")] Movie movie)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,PassingDate,TheClassAttended,Price,LastName,MaidenName")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -127,7 +127,7 @@ namespace MvcMovie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,PassingDate,TheClassAttended,Price,LastName")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,PassingDate,TheClassAttended,Price,LastName,MaidenName")] Movie movie)
         {
             if (id != movie.Id)
             {

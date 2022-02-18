@@ -27,7 +27,7 @@ namespace MvcMovie.Models
                         PassingDate = DateTime.Parse("1989-2-12"),
                         TheClassAttended = "Romantic Comedy",
                         LastName = "R",
-                        Price = 7.99M
+                       
                     },
 
                     new Movie
@@ -36,7 +36,7 @@ namespace MvcMovie.Models
                         PassingDate = DateTime.Parse("1984-3-13"),
                         TheClassAttended = "Comedy",
                         LastName = "M17",
-                        Price = 8.99M
+                        
                     },
 
                     new Movie
@@ -45,7 +45,7 @@ namespace MvcMovie.Models
                         PassingDate = DateTime.Parse("1986-2-23"),
                         TheClassAttended = "Comedy",
                         LastName = "PG13",
-                        Price = 9.99M
+                       
                     },
 
                     new Movie
@@ -54,7 +54,7 @@ namespace MvcMovie.Models
                         PassingDate = DateTime.Parse("1959-4-15"),
                         TheClassAttended = "Western",
                         LastName = "MC17",
-                        Price = 3.99M
+                        
                     }
                 );
                 context.SaveChanges();

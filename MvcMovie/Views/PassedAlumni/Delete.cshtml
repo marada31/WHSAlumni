@@ -1,7 +1,9 @@
 ﻿@model MvcMovie.Models.Movie
 
 @{
-    ViewData["FirstName"] = "Delete";
+    
+    
+    ViewData["Title"] = "Delete";
 }
 
 <h1>Delete</h1>
@@ -16,6 +18,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MaidenName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MaidenName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.LastName)
@@ -34,12 +42,6 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.TheClassAttended)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
         </dd>
 
     </dl>
