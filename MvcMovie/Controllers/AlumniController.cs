@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MvcMovie.Data;
-using MvcMovie.Models;
+using MvcWHSAlumni.Data;
+using MvcWHSAlumni.Models;
 
-namespace MvcMovie.Controllers
+namespace MvcWHSAlumni.Controllers
 {
     public class PassedAlumniController : Controller
     {
-        private readonly MvcMovieContext _context;
+        private readonly MvcWHSAlumniContext _context;
 
-        public PassedAlumniController(MvcMovieContext context)
+        public PassedAlumniController(MvcWHSAlumniContext context)
         {
             _context = context;
         }
@@ -23,7 +23,7 @@ namespace MvcMovie.Controllers
         public async Task<IActionResult> Index(string AttendedClassResults, string searchString)
         {
             // LINQ to get list of classes by year.
-            IQueryable<string> genreQuery = from m in _context.Movie
+            IQueryable<string> alumniQuery = from m in _context.Movie
                                             orderby m.TheClassAttended
                                             select m.TheClassAttended;
 
@@ -45,7 +45,7 @@ namespace MvcMovie.Controllers
 
             var AttendedClassResultsVM = new AttendedClassResultsViewModel
             {
-                AttendedClass = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                AttendedClass = new SelectList(await alumniQuery.Distinct().ToListAsync()),
                 PassedAlumni = await deceased.ToListAsync()
             };
 

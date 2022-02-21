@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MvcMovie.Models
+namespace MvcWHSAlumni.Models
 {
     public class Movie
     {

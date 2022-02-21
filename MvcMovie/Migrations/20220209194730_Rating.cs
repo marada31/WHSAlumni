@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace MvcMovie.Migrations
+namespace MvcWHSAlumni.Migrations
 {
     public partial class LastName : Migration
     {

@@ -1,18 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using MvcMovie.Data;
+using MvcWHSAlumni.Data;
 using System;
 using System.Linq;
 
-namespace MvcMovie.Models
+namespace MvcWHSAlumni.Models
 {
     public static class SeedData
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new MvcMovieContext(
+            using (var context = new MvcWHSAlumniContext(
                 serviceProvider.GetRequiredService<
-                    DbContextOptions<MvcMovieContext>>()))
+                    DbContextOptions<MvcWHSAlumniContext>>()))
             {
                 // Look for any deceased.
                 if (context.Movie.Any())

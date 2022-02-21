@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using MvcMovie.Data;
-using MvcMovie.Models;
+using MvcWHSAlumni.Data;
+using MvcWHSAlumni.Models;
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<MvcMovieContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MvcMovieContext")));
+builder.Services.AddDbContext<MvcWHSAlumniContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MvcWHSAlumniContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
