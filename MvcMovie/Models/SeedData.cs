@@ -15,13 +15,13 @@ namespace MvcWHSAlumni.Models
                     DbContextOptions<MvcWHSAlumniContext>>()))
             {
                 // Look for any deceased.
-                if (context.Movie.Any())
+                if (context.tWHSAlumni.Any())
                 {
                     return;   // DB has been seeded
                 }
 
-                context.Movie.AddRange(
-                    new Movie
+                context.tWHSAlumni.AddRange(
+                    new tWHSAlumni
                     {
                         FirstName = "When Harry Met Sally",
                         PassingDate = DateTime.Parse("1989-2-12"),
@@ -30,7 +30,7 @@ namespace MvcWHSAlumni.Models
                        
                     },
 
-                    new Movie
+                    new tWHSAlumni
                     {
                         FirstName = "Ghostbusters ",
                         PassingDate = DateTime.Parse("1984-3-13"),
@@ -39,7 +39,7 @@ namespace MvcWHSAlumni.Models
                         
                     },
 
-                    new Movie
+                    new tWHSAlumni
                     {
                         FirstName = "Ghostbusters 2",
                         PassingDate = DateTime.Parse("1986-2-23"),
@@ -48,7 +48,7 @@ namespace MvcWHSAlumni.Models
                        
                     },
 
-                    new Movie
+                    new tWHSAlumni
                     {
                         FirstName = "Rio Bravo",
                         PassingDate = DateTime.Parse("1959-4-15"),

@@ -15,6 +15,6 @@ namespace MvcWHSAlumni.Data
         {
         }
 
-        public DbSet<MvcWHSAlumni.Models.Movie> Movie { get; set; }
+        public DbSet<MvcWHSAlumni.Models.tWHSAlumni> tWHSAlumni { get; set; }
     }
 }

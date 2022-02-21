@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcWHSAlumni.Models
 {
-    public class Movie
+    public class tWHSAlumni
     {
         public int Id { get; set; }
 

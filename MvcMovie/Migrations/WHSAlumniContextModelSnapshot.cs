@@ -22,7 +22,7 @@ namespace MvcWHSAlumni.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("MvcWHSAlumni.Models.Movie", b =>
+            modelBuilder.Entity("MvcWHSAlumni.Models.tWHSAlumni", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -47,7 +47,7 @@ namespace MvcWHSAlumni.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Movie");
+                    b.ToTable("tWHSAlumni");
                 });
 #pragma warning restore 612, 618
         }

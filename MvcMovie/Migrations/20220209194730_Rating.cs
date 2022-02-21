@@ -10,7 +10,7 @@ namespace MvcWHSAlumni.Migrations
         {
             migrationBuilder.AddColumn<string>(
                 name: "LastName",
-                table: "Movie",
+                table: "tWHSAlumni",
                 type: "nvarchar(max)",
                 nullable: true);
         }
@@ -19,7 +19,7 @@ namespace MvcWHSAlumni.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "LastName",
-                table: "Movie");
+                table: "tWHSAlumni");
         }
     }
 }
