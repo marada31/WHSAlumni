@@ -23,37 +23,37 @@ namespace MvcWHSAlumni.Models
                 context.tWHSAlumni.AddRange(
                     new tWHSAlumni
                     {
-                        FirstName = "When Harry Met Sally",
+                        FirstName = "John",
                         PassingDate = DateTime.Parse("1989-2-12"),
-                        TheClassAttended = "Romantic Comedy",
-                        LastName = "R",
+                        TheClassAttended = "1989",
+                        LastName = "Smith",
                        
                     },
 
                     new tWHSAlumni
                     {
-                        FirstName = "Ghostbusters ",
+                        FirstName = "Julie",
                         PassingDate = DateTime.Parse("1984-3-13"),
-                        TheClassAttended = "Comedy",
-                        LastName = "M17",
+                        TheClassAttended = "1949",
+                        LastName = "Jones",
                         
                     },
 
                     new tWHSAlumni
                     {
-                        FirstName = "Ghostbusters 2",
+                        FirstName = "Jerry",
                         PassingDate = DateTime.Parse("1986-2-23"),
-                        TheClassAttended = "Comedy",
-                        LastName = "PG13",
+                        TheClassAttended = "1964",
+                        LastName = "Mason",
                        
                     },
 
                     new tWHSAlumni
                     {
-                        FirstName = "Rio Bravo",
+                        FirstName = "ALbert",
                         PassingDate = DateTime.Parse("1959-4-15"),
-                        TheClassAttended = "Western",
-                        LastName = "MC17",
+                        TheClassAttended = "1968",
+                        LastName = "Hirsch",
                         
                     }
                 );

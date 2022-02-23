@@ -8,23 +8,28 @@
 <script src="~/js/ColumnSortDeceased.js"></script>
 
 <h7>Deceased Classmates</h7>
+<div class="text-center">
+    <p style="text-align: left; font-size:12px">Here is a listing of our deceased Alumni. 
+    If you know of someone that has passed that is not on this list please send us a link to the obituary and email us at john.snouffer@gmail.com</p>
+</div>
 <p></p>
-<p style="font-size: 10px; font-">
+<p style="font-size: 10px;">
     <a asp-action="Create">Report Passed Alumni</a>
 </p>
 <form asp-controller="PassedAlumni" asp-action="Index" method="get">
     <p style="font-size: 10px; font-weight:bold">
-
+        Select by Class:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <select asp-for="AttendedClassResults" asp-items="Model.AttendedClass" style="font-size: 10px">
             <option value="">All</option>
         </select>
-
-        &nbsp;First Name: <input type="text" asp-for="SearchString" />
-        <input type="submit" value="Filter" />
+        <br />
+        and/or&nbsp;First Name: <input type="text" asp-for="SearchString" />
+        <br />
+        <input type="submit" value="Submit" />
     </p>
 </form>
 
-<table class="table" id="AlumniTable" style="font-size: 10px;background-color:lightblue">
+<table class="table data" id="AlumniTable" style="font-size: 10px;background-color:lightblue">
     <thead>
         <tr>
             <th onclick="sortTable(0)">

@@ -1,4 +1,15 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿ 
 
-// Write your JavaScript code.
+ $(document).ready(function(){
+  $(".increaseFont,.decreaseFont").click(function(){
+  var type=  $(this).val();
+   var curFontSize = $('.data').css('font-size');
+  
+   if(type=='A▲'){
+    $('.data').css('font-size', parseInt(curFontSize)+1);
+    }
+   else{
+    $('.data').css('font-size', parseInt(curFontSize)-1);
+   }
+     });
+ });
