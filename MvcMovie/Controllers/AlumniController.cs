@@ -89,7 +89,7 @@ namespace MvcWHSAlumni.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,PassingDate,TheClassAttended,Price,LastName,MaidenName")] tWHSAlumni movie)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,PassingDate,TheClassAttended,Price,LastName,MaidenName,HighSchool")] tWHSAlumni movie)
         {
             if (ModelState.IsValid)
             {
@@ -121,7 +121,7 @@ namespace MvcWHSAlumni.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,PassingDate,TheClassAttended,Price,LastName,MaidenName")] tWHSAlumni movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,PassingDate,TheClassAttended,Price,LastName,MaidenName,HighSchool")] tWHSAlumni movie)
         {
             if (id != movie.Id)
             {

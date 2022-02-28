@@ -37,5 +37,9 @@ namespace MvcWHSAlumni.Models
         public string? TheClassAttended { get; set; }
 
 
+        [StringLength(60, MinimumLength = 2, ErrorMessage = "Please enter the High School Attended.")]
+        [Required(ErrorMessage = "Please enter the High School Attended.")]
+        [Display(Name = "School Attended")]
+        public string? HighSchool { get; set; }
     }
 }
