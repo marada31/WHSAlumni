@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcWHSAlumni.Data;
 using MvcWHSAlumni.Models;
+using PagedList;
 
 namespace MvcWHSAlumni.Controllers
 {
@@ -15,23 +16,37 @@ namespace MvcWHSAlumni.Controllers
     {
         private readonly MvcWHSAlumniContext _context;
 
+
+
         public PassedAlumniController(MvcWHSAlumniContext context)
         {
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string AttendedClassResults, string searchString)
+
+        public async Task<IActionResult> Index(string AttendedClassResults, string searchString, string LastNameResults)
         {
-            // LINQ to get list of classes by year.
+
+
+           // LINQ to get list of classes by year.
             IQueryable<string> alumniQuery = from m in _context.tWHSAlumni
-                                            orderby m.TheClassAttended
-                                            select m.TheClassAttended;
+                                             orderby m.TheClassAttended
+                                             select m.TheClassAttended;
+
+            IQueryable<string> alumniQuery2 = from m in _context.tWHSAlumni
+                                             orderby m.LastName
+                                             select m.LastName;
+
+
 
 
             var deceased = from m in _context.tWHSAlumni
-                           
                            select m;
-                           
+
+            var deceased2 = from m in _context.tWHSAlumni
+                           select m;
+
+
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -43,20 +58,27 @@ namespace MvcWHSAlumni.Controllers
                 deceased = deceased.Where(x => x.TheClassAttended == AttendedClassResults);
             }
 
+            if (!string.IsNullOrEmpty(LastNameResults))
+            {
+                deceased = deceased.Where(x => x.LastName == LastNameResults);
+            }
+
             var AttendedClassResultsVM = new AttendedClassResultsViewModel
             {
                 AttendedClass = new SelectList(await alumniQuery.Distinct().ToListAsync()),
-                PassedAlumni = await deceased.ToListAsync()
+
+                LastNameClass = new SelectList(await alumniQuery2.Distinct().ToListAsync()),
+
+                PassedAlumni = await deceased.ToListAsync(),
+              
             };
 
             return View(AttendedClassResultsVM);
         }
 
 
-
-
         // GET: PassedAlumni/Details/5
-         public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id)
      
         {
             if (id == null)

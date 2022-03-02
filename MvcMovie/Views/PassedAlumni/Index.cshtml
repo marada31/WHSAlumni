@@ -6,6 +6,16 @@
 
 
 <script src="~/js/ColumnSortDeceased.js"></script>
+<script language="javascript">
+    
+    function showTable(){
+document.getElementById('AlumniTable').style.visibility = "visible";
+}
+function hideTable(){
+document.getElementById('AlumniTable').style.visibility = "hidden";
+}
+
+</script>
 
 <h7>Deceased Classmates</h7>
 <div class="text-center">
@@ -18,14 +28,19 @@
 </p>
 <form asp-controller="PassedAlumni" asp-action="Index" method="get">
     <p style="font-size: 10px; font-weight:bold">
-        Select by Class:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Select by Class:&nbsp;and/or&nbsp;
         <select asp-for="AttendedClassResults" asp-items="Model.AttendedClass" style="font-size: 10px">
+            <option value="">All</option>
+        </select><br />
+       Select by Last Name:&nbsp;and/or&nbsp;<select asp-for="LastNameResults" asp-items="Model.LastNameClass" style="font-size: 10px">
             <option value="">All</option>
         </select>
         <br />
         and/or&nbsp;First Name: <input type="text" asp-for="SearchString" />
         <br />
-        <input type="submit" value="Submit" />
+
+
+        <input type="submit" value="Submit"/>
     </p>
 </form>
 
@@ -47,7 +62,7 @@
             <th onclick="sortTable(4)">
                 @Html.DisplayNameFor(model => model.PassedAlumni[0].TheClassAttended)
             </th>
-            <th onclick="sortTable(4)">
+            <th onclick="sortTable(5)">
                 @Html.DisplayNameFor(model => model.PassedAlumni[0].HighSchool)
             </th>
 
@@ -81,6 +96,7 @@
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
                 </td>
             </tr>
         }
