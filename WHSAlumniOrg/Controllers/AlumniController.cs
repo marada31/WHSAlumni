@@ -16,13 +16,10 @@ namespace MvcWHSAlumni.Controllers
     {
         private readonly MvcWHSAlumniContext _context;
 
-
-
         public PassedAlumniController(MvcWHSAlumniContext context)
         {
             _context = context;
         }
-
 
         public async Task<IActionResult> Index(string AttendedClassResults, string searchString, string HighSchoolResults, string MaidenName, string LastName)
         {
@@ -38,14 +35,11 @@ namespace MvcWHSAlumni.Controllers
                                              select m.HighSchool;
 
 
-
-
             var deceased = from m in _context.tWHSAlumni
                            select m;
 
             var deceased2 = from m in _context.tWHSAlumni
                            select m;
-
 
 
             if (!string.IsNullOrEmpty(searchString))
