@@ -15,13 +15,13 @@ namespace MvcWHSAlumni.Models
         public string? FirstName { get; set; }
 
 
-        [Display(Name = "Maiden Name")]
+        [Display(Name = "Married Name")]
         public string? MaidenName { get; set; }
 
 
         [StringLength(60, MinimumLength = 2, ErrorMessage = "Please enter a valid last name.")]
         [Required(ErrorMessage = "Please enter a valid last name.")]
-        [Display(Name = "Last Name")]
+        [Display(Name = "Last Name / Maiden Name")]
         public string? LastName { get; set; }
 
 

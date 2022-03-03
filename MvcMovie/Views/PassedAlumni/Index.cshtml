@@ -32,18 +32,22 @@ document.getElementById('AlumniTable').style.visibility = "hidden";
         <select asp-for="AttendedClassResults" asp-items="Model.AttendedClass" style="font-size: 10px">
             <option value="">All</option>
         </select><br />
-       Select by Last Name:&nbsp;and/or&nbsp;<select asp-for="LastNameResults" asp-items="Model.LastNameClass" style="font-size: 10px">
+       Select by High School:&nbsp;and/or&nbsp;<select asp-for="HighSchoolResults" asp-items="Model.HighSchoolClass" style="font-size: 10px">
             <option value="">All</option>
         </select>
         <br />
         and/or&nbsp;First Name: <input type="text" asp-for="SearchString" />
+        <br />
+        and/or&nbsp;Married Name: <input type="text" asp-for="MaidenName" />
+        <br />
+        and/or&nbsp;Last Name: <input type="text" asp-for="LastName" />
         <br />
 
 
         <input type="submit" value="Submit"/>
     </p>
 </form>
-
+<p style="font-size:10px">Please note: Worthington High School was renamed Thomas Worthington High School in 1991. </p>
 <table class="table data" id="AlumniTable" style="font-size: 10px;background-color:lightblue">
     <thead>
         <tr>
@@ -51,10 +55,10 @@ document.getElementById('AlumniTable').style.visibility = "hidden";
                 @Html.DisplayNameFor(model => model.PassedAlumni[0].FirstName)
             </th>
             <th onclick="sortTable(1)">
-                @Html.DisplayNameFor(model => model.PassedAlumni[0].MaidenName)
+                @Html.DisplayNameFor(model => model.PassedAlumni[0].LastName)
             </th>
             <th onclick="sortTable(2)">
-                @Html.DisplayNameFor(model => model.PassedAlumni[0].LastName)
+                @Html.DisplayNameFor(model => model.PassedAlumni[0].MaidenName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PassedAlumni[0].PassingDate)
@@ -77,10 +81,10 @@ document.getElementById('AlumniTable').style.visibility = "hidden";
                     @Html.DisplayFor(modelItem => item.FirstName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.MaidenName)
+                    @Html.DisplayFor(modelItem => item.LastName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
+                    @Html.DisplayFor(modelItem => item.MaidenName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.PassingDate)

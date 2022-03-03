@@ -24,7 +24,7 @@ namespace MvcWHSAlumni.Controllers
         }
 
 
-        public async Task<IActionResult> Index(string AttendedClassResults, string searchString, string LastNameResults)
+        public async Task<IActionResult> Index(string AttendedClassResults, string searchString, string HighSchoolResults, string MaidenName, string LastName)
         {
 
 
@@ -34,8 +34,8 @@ namespace MvcWHSAlumni.Controllers
                                              select m.TheClassAttended;
 
             IQueryable<string> alumniQuery2 = from m in _context.tWHSAlumni
-                                             orderby m.LastName
-                                             select m.LastName;
+                                             orderby m.HighSchool
+                                             select m.HighSchool;
 
 
 
@@ -53,21 +53,31 @@ namespace MvcWHSAlumni.Controllers
                 deceased = deceased.Where(s => s.FirstName!.Contains(searchString));
             }
 
+            if (!string.IsNullOrEmpty(LastName))
+            {
+                deceased = deceased.Where(t => t.LastName!.Contains(LastName));
+            }
+
+            if (!string.IsNullOrEmpty(MaidenName))
+            {
+                deceased = deceased.Where(t => t.MaidenName!.Contains(MaidenName));
+            }
+
             if (!string.IsNullOrEmpty(AttendedClassResults))
             {
                 deceased = deceased.Where(x => x.TheClassAttended == AttendedClassResults);
             }
 
-            if (!string.IsNullOrEmpty(LastNameResults))
+            if (!string.IsNullOrEmpty(HighSchoolResults))
             {
-                deceased = deceased.Where(x => x.LastName == LastNameResults);
+                deceased = deceased.Where(x => x.HighSchool == HighSchoolResults);
             }
 
             var AttendedClassResultsVM = new AttendedClassResultsViewModel
             {
                 AttendedClass = new SelectList(await alumniQuery.Distinct().ToListAsync()),
 
-                LastNameClass = new SelectList(await alumniQuery2.Distinct().ToListAsync()),
+                HighSchoolClass = new SelectList(await alumniQuery2.Distinct().ToListAsync()),
 
                 PassedAlumni = await deceased.ToListAsync(),
               

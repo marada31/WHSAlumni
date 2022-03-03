@@ -9,12 +9,17 @@ namespace MvcWHSAlumni.Models
 
         public SelectList? AttendedClass { get; set; }
 
-        public SelectList? LastNameClass { get; set; }
+        public SelectList? HighSchoolClass { get; set; }
 
         public string? AttendedClassResults { get; set; }
 
-        public string? LastNameResults { get; set; }
+        public string? HighSchoolResults { get; set; }
 
         public string? SearchString { get; set; }
+
+        public string? MaidenName { get; set; }
+
+        public string? LastName { get; set; }
+
     }
 }
