@@ -26,23 +26,26 @@ document.getElementById('AlumniTable').style.visibility = "hidden";
 <p style="font-size: 10px;">
     <a asp-action="Create">Report Passed Alumni</a>
 </p>
-<form asp-controller="PassedAlumni" asp-action="Index" method="get">
-    <p style="font-size: 10px; font-weight:bold">
-        Select by Class:&nbsp;and/or&nbsp;
+<form asp-controller="PassedAlumni" asp-action="Index" method="get"  style="font-size: 10px; font-weight:bold">
+     <table>
+    <tr><td><p>
+        Select by Class:&nbsp;and/or </td><td>
         <select asp-for="AttendedClassResults" asp-items="Model.AttendedClass" style="font-size: 10px">
             <option value="">All</option>
-        </select><br />
-       Select by High School:&nbsp;and/or&nbsp;<select asp-for="HighSchoolResults" asp-items="Model.HighSchoolClass" style="font-size: 10px">
+        </select></td></tr>
+      <tr><td>Select by High School:&nbsp;and/or </td><td><select asp-for="HighSchoolResults" asp-items="Model.HighSchoolClass" style="font-size: 10px">
             <option value="">All</option>
-        </select>
-        <br />
-        and/or&nbsp;First Name: <input type="text" asp-for="SearchString" />
-        <br />
-        and/or&nbsp;Married Name: <input type="text" asp-for="MaidenName" />
-        <br />
-        and/or&nbsp;Last Name: <input type="text" asp-for="LastName" />
-        <br />
+        </select></td></tr>
 
+
+        <tr><td>
+        and/or First Name: </td><td><input type="text" asp-for="SearchString" /></td></tr>
+       <tr><td>
+        and/or Last (Maiden Name): </td><td><input type="text" asp-for="MaidenName" /></td></tr>
+       <tr><td>
+        and/or Married Last Name: </td><td><input type="text" asp-for="LastName" /></td></tr>
+        
+        </table>
 
         <input type="submit" value="Submit"/>
     </p>
